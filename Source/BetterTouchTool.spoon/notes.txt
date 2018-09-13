@@ -1,0 +1,11 @@
+-- > json = { BTTTouchBarButtonName = "Bar \"None\"" }
+
+-- > hs.json.encode(json)
+-- {"BTTTouchBarButtonName":"Bar \"None\""}
+
+-- > code = [[tell application "BetterTouchTool" to update_trigger "2BA37DD5-3DA0-434B-B6AC-774B8B475C17" json "]] .. hs.json.encode(json):gsub([[\]], [[\\]]):gsub([["]], [[\"]]) .. [["]]
+
+-- > code
+-- tell application "BetterTouchTool" to update_trigger "2BA37DD5-3DA0-434B-B6AC-774B8B475C17" json "{\"BTTTouchBarButtonName\":\"Bar \\\"None\\\"\"}"
+
+-- > hs.osascript.applescript(code)
